@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Illustration of an external aquarium canister filter">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#d9eff4"/><stop offset="1" stop-color="#f7fbfc"/></linearGradient><linearGradient id="body" x2="1" y2="1"><stop stop-color="#294857"/><stop offset="1" stop-color="#102a3d"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#bg)"/><circle cx="950" cy="145" r="190" fill="#fff" opacity=".55"/>
+  <path d="M790 170h220v210H790z" fill="#fff" fill-opacity=".45" stroke="#78b4c2" stroke-width="10"/><path d="M798 218h204" stroke="#fff" stroke-width="9" opacity=".8"/>
+  <path d="M401 305q0-44 42-44h254q42 0 42 44v306q0 47-46 47H447q-46 0-46-47z" fill="url(#body)"/><ellipse cx="570" cy="305" rx="169" ry="49" fill="#3b5d6c"/><ellipse cx="570" cy="305" rx="128" ry="28" fill="#182f40"/><path d="M445 616q125 55 250 0v55q-120 66-250 0z" fill="#223d4b"/><circle cx="570" cy="669" r="12" fill="#08a9bf"/>
+  <path d="M690 322c145-14 200-6 200-82v-64" fill="none" stroke="#283f4b" stroke-width="24" stroke-linecap="round"/><path d="M438 336c-108 0-145-29-145-94v-43" fill="none" stroke="#426575" stroke-width="22" stroke-linecap="round"/><path d="M495 383h150" stroke="#8ab2bd" stroke-width="9" opacity=".5"/><circle cx="527" cy="473" r="13" fill="#08a9bf"/>
+</svg>

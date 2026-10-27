@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Find aquarium filter matches for freshwater, saltwater, and reef tanks. Compare filters by tank size, livestock, flow preference, and setup." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#06233d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tankwise" />
+  <meta property="og:title" content="Aquarium Filter Finder | Tankwise" />
+  <meta property="og:description" content="Find filter matches for your aquarium by tank size, water type, livestock, and flow preference." />
+  <meta property="og:image" content="/assets/reef-hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aquarium Filter Finder | Tankwise" />
+  <meta name="twitter:description" content="Find filter matches for freshwater, saltwater, and reef aquariums." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="preload" as="image" href="./assets/reef-hero.webp" fetchpriority="high" />
+  <title>Aquarium Filter Finder for Freshwater & Saltwater Tanks | Tankwise</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Tankwise Aquarium Filter Finder","applicationCategory":"LifestyleApplication","operatingSystem":"Any","description":"A free aquarium filter finder that matches filters to tank size, water type, livestock, flow preference, and setup."}
+  </script>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="wrap header">
+    <a class="wordmark" href="#top" aria-label="Tankwise home">TANKWISE</a>
+  </header>
+  <main id="top">
+    <section class="hero" id="landing">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">A simpler way to choose</span>
+          <h1>The right filter starts with your tank.</h1>
+          <p class="intro">Tell us about your aquarium. We’ll help you compare filter options that fit your setup.</p>
+          <button class="button" type="button" id="startQuiz">Start the quiz <span aria-hidden="true">→</span></button>
+          <p class="hero-note">Five quick questions <span aria-hidden="true">·</span> Freshwater and saltwater <span aria-hidden="true">·</span> Tanks through 400 gallons</p>
+        </div>
+      </div>
+      <div class="hero-bottom-note">INDEPENDENT AQUARIUM FILTER GUIDE</div>
+    </section>
+    <section class="quiz-panel" id="quizPanel" hidden>
+      <div class="quiz-wrap">
+        <button class="home-link" type="button" id="backToLanding">← Back to home</button>
+        <div class="quiz" id="quiz" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>

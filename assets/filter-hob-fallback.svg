@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Illustration of a hang-on-back aquarium filter">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#d9eff4"/><stop offset="1" stop-color="#f7fbfc"/></linearGradient><linearGradient id="glass" x2="0" y2="1"><stop stop-color="#51b7cb" stop-opacity=".28"/><stop offset="1" stop-color="#087d9a" stop-opacity=".12"/></linearGradient><linearGradient id="filter" x2="1" y2="1"><stop stop-color="#263d4a"/><stop offset="1" stop-color="#0d2639"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#bg)"/><circle cx="980" cy="130" r="170" fill="#fff" opacity=".55"/>
+  <path d="M190 330h660v350H190z" fill="url(#glass)" stroke="#86bcc8" stroke-width="12"/><path d="M196 383h650" stroke="#fff" stroke-width="10" opacity=".8"/>
+  <path d="M660 190h310q36 0 36 36v62h-98v-42H703v54h-62V226q0-36 19-36z" fill="url(#filter)"/><path d="M682 226h300v26H682z" fill="#517080"/><path d="M740 288v285q0 34 34 34h34V332h100v-44z" fill="#1a3344"/><path d="M665 288h89v26h-89z" fill="#0a92a8"/>
+  <path d="M284 637q64-102 122 0 50-66 105 0 52-81 115 0" fill="none" stroke="#fff" stroke-width="12" opacity=".65"/><circle cx="363" cy="490" r="17" fill="#fff" opacity=".75"/><circle cx="402" cy="445" r="10" fill="#fff" opacity=".55"/><circle cx="486" cy="530" r="13" fill="#fff" opacity=".68"/>
+</svg>
