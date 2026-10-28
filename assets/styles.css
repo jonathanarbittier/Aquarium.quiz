@@ -53,7 +53,7 @@
     .nav a{color:rgba(255,255,255,.88)}.nav a:hover{color:#fff}.nav .nav-cta{border:1px solid rgba(255,255,255,.7);border-radius:3px;padding:9px 13px;color:#fff}
     .hero{width:100%;min-height:600px;position:relative;display:flex;align-items:center;padding:122px 24px 58px;overflow:hidden;background:#06233d}
     .hero:before,.hero:after{content:"";position:absolute;inset:0}
-    .hero:before{background-image:url('assets/reef-hero.webp');background-position:center 53%;background-size:cover;transform:scale(1.005)}
+    .hero:before{background-image:url('./reef-hero.webp');background-position:center 53%;background-size:cover;transform:scale(1.005)}
     .hero:after{background:linear-gradient(90deg,rgba(3,23,43,.89) 0%,rgba(3,23,43,.73) 37%,rgba(3,23,43,.26) 72%,rgba(3,23,43,.14) 100%),linear-gradient(0deg,rgba(3,23,43,.48),transparent 40%)}
     .hero-inner{position:relative;z-index:1;width:min(var(--max),100%);margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:end}
     .hero-copy{max-width:610px}.eyebrow{color:#76d9e5}.hero h1{max-width:650px;font:clamp(46px,6.2vw,76px)/.99 var(--serif);letter-spacing:-.045em;color:#fff;margin:18px 0 22px}.hero .intro{max-width:520px;color:rgba(255,255,255,.83);font-size:17px;line-height:1.6;margin:0 0 25px}
@@ -72,7 +72,7 @@
     .wordmark{color:#fff;font-size:15px;letter-spacing:.16em}
     .hero{width:100%;min-height:100svh;position:relative;display:flex;align-items:center;padding:120px 24px 70px;overflow:hidden;background:#06233d}
     .hero:before,.hero:after{content:"";position:absolute;inset:0}
-    .hero:before{background-image:url('assets/reef-hero.webp');background-position:center 53%;background-size:cover}
+    .hero:before{background-image:url('./reef-hero.webp');background-position:center 53%;background-size:cover}
     .hero:after{background:linear-gradient(90deg,rgba(3,23,43,.83) 0%,rgba(3,23,43,.62) 37%,rgba(3,23,43,.12) 77%),linear-gradient(0deg,rgba(3,23,43,.42),transparent 40%)}
     .hero-inner{position:relative;z-index:1;width:min(var(--max),100%);margin:0 auto;display:block}
     .hero-copy{max-width:660px}.hero .eyebrow{color:#80e2eb;letter-spacing:.17em}.hero h1{max-width:640px;font:clamp(48px,7vw,82px)/.99 var(--serif);letter-spacing:-.045em;color:#fff;margin:19px 0 22px}
@@ -90,7 +90,7 @@
     /* Keep the underwater setting visible throughout the quiz, while moving the crop between steps. */
     .quiz-panel{position:relative;isolation:isolate;overflow:hidden;background:#06233d}
     .quiz-panel:before,.quiz-panel:after{content:"";position:absolute;inset:0;z-index:-1}
-    .quiz-panel:before{background-image:url('assets/reef-hero.webp');background-size:cover;background-position:50% center;transform:scale(1.04);transition:background-position .7s ease}
+    .quiz-panel:before{background-image:url('./reef-hero.webp');background-size:cover;background-position:50% center;transform:scale(1.04);transition:background-position .7s ease}
     .quiz-panel:after{background:rgba(3,24,44,.62)}
     .quiz-panel[data-step="0"]:before{background-position:18% center}
     .quiz-panel[data-step="1"]:before{background-position:38% center}
