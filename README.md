@@ -1,4 +1,4 @@
-# Tankwise Aquarium Filter Finder
+# TankPicks Aquarium Filter Finder
 
 A lightweight static website. It uses plain HTML, CSS, and JavaScript; there is no framework, build step, API key, or dependency install.
 
