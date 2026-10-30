@@ -1,18 +1,36 @@
 # Product image provenance audit
 
-Audit date: 2026-10-29
+Audit date: 2026-10-30
 
-The repository contains 29 local product JPGs under `assets/products/`. Git history records when they were added and later compressed, but it contains no source URLs, license files, purchase receipts, permission emails, or attribution records for any of them. File metadata does not establish a rights holder.
+## Current decision
 
-Because provenance is undocumented:
+The repository contains 29 local JPGs under `assets/products/`. Git history and file metadata do not identify their source, rights holder, or license. None of these files is approved for deployment, and the build intentionally excludes the entire `assets/products/` directory.
 
-- Every file in `assets/products/*.jpg` is flagged **permission not documented**.
-- It is not possible from repository evidence to identify which files, if any, were downloaded from Amazon. Any image obtained from an Amazon product page must be treated as Amazon-derived and must not be assumed licensed for independent reuse.
-- Public accessibility of an image is not evidence of reuse permission.
-- `assets/config.js` keeps `productImageUsageEnabled: false`, so the live interface uses the repository’s generic filter-format SVG illustrations instead.
+The application uses the per-product `approvedProductPhotos` registry in `assets/app.js`. A photograph is eligible only when its registry entry records an exact-model asset that has a documented display basis. The registry is currently empty.
 
-## Files requiring source and permission records
+## Source review
 
-`107.jpg`, `207.jpg`, `307.jpg`, `407.jpg`, `ac110.jpg`, `ac20.jpg`, `ac30.jpg`, `ac50.jpg`, `ac70.jpg`, `aqueon200.jpg`, `c2.jpg`, `c3.jpg`, `c4.jpg`, `cascade1000.jpg`, `cascade1200.jpg`, `cascade1500.jpg`, `cascade700.jpg`, `cascadeMax.jpg`, `eheim2260.jpg`, `eheim2262.jpg`, `fx2.jpg`, `fx4.jpg`, `fx6.jpg`, `sponge.jpg`, `tidal110.jpg`, `tidal35.jpg`, `tidal55.jpg`, `tidal75.jpg`, `u3.jpg`.
+- Fluval/Hagen: official terms state that site photographs and other content may not be reproduced or publicly displayed without prior written consent. No written consent is recorded.
+- EHEIM: official legal information states that published images may not be reproduced or used in other electronic publications without express written consent. No written consent is recorded.
+- Seachem, Penn-Plax, Aqueon, and Aquarium Co-Op: no public product-image reuse grant was located for the exact catalog models.
+- Amazon: no approved Associates image integration or credentials are configured. Amazon program rules require images to be obtained through an approved program integration and prohibit storing or caching the image itself; the existing local JPGs therefore cannot be treated as approved Amazon assets.
+- A Wikimedia Commons photograph depicting an FX6 was located under CC BY-SA 4.0. It is not used because that license requires public attribution and license notice, which is outside the requested interface treatment.
 
-For each image the owner wants to enable, record the original source URL, rights holder, permission/license basis, retrieval date, allowed uses, and any required attribution. Enable product photos only after every displayed file has a documented basis.
+## Uncleared rankable models
+
+- Fluval AC20, AC30, AC50, AC70, and AC110 Power Filters
+- Seachem Tidal 35, 55, 75, and 110
+- Fluval C2, C3, and C4 Power Filters
+- Fluval U3 Underwater Filter
+- Fluval 107, 207, 307, and 407
+- Fluval FX2, FX4, and FX6
+- EHEIM Classic 1500XL 2260 and 2262
+- Penn-Plax Cascade 700, 1000, 1200, and 1500
+- Aqueon QuietFlow Canister 200
+- Aquarium Co-Op Easy Flow Sponge Filter
+
+The orphaned `cascadeMax.jpg` is also uncleared, but Cascade Max-Flow is not rankable because its manufacturer-confirmed upper capacity remains unavailable.
+
+## Evidence required to approve a photograph
+
+Each enabled model needs an exact-model source URL or original file, rights holder, written permission or applicable license, retrieval date, allowed uses, required attribution, and verified pixel dimensions. An approved Amazon integration instead needs the relevant Associate/Creators API credentials and exact ASIN mapping; Amazon image URLs must remain remote and be refreshed under the applicable program rules.

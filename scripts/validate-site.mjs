@@ -6,6 +6,15 @@ const projectRoot = resolve(new URL("../", import.meta.url).pathname);
 const root = resolve(projectRoot, process.argv[2] || ".");
 const failures = [];
 const htmlFiles = [];
+const forbiddenPublicText = [
+  "owner has not yet supplied",
+  "owner identity",
+  "business identity",
+  "mailing address",
+  "dedicated privacy contact",
+  "usage permission is undocumented",
+  "owner records a source and permission basis"
+];
 
 function walk(dir) {
   for (const name of readdirSync(dir)) {
@@ -41,6 +50,9 @@ const seen = { title: new Map(), description: new Map(), canonical: new Map() };
 
 for (const file of htmlFiles) {
   const html = readFileSync(file, "utf8");
+  for (const phrase of forbiddenPublicText) {
+    if (html.toLowerCase().includes(phrase)) failures.push(`${relative(root, file)}: contains public placeholder text: ${phrase}`);
+  }
   const values = {
     title: capture(html, /<title>([^<]+)<\/title>/i, "title", file),
     description: capture(html, /<meta\s+name="description"\s+content="([^"]+)"/i, "meta description", file),
@@ -88,9 +100,10 @@ const robots = readFileSync(join(root, "robots.txt"), "utf8");
 if (!robots.includes("Sitemap: https://tankpicks.com/sitemap.xml")) failures.push("robots.txt does not reference the production sitemap");
 
 const appCode = readFileSync(join(root, "assets/app.js"), "utf8");
+if (existsSync(join(root, "assets/products"))) failures.push("Uncleared product photographs were copied into the deployable build");
 const element = { addEventListener() {}, classList: { add() {}, remove() {}, toggle() {} }, dataset: {}, scrollIntoView() {}, focus() {}, setAttribute() {} };
 const context = {
-  window: { TANKPICKS_CONFIG: { affiliateLinksEnabled: false, amazonAssociateTag: "", productImageUsageEnabled: false } },
+  window: { TANKPICKS_CONFIG: { affiliateLinksEnabled: false, amazonAssociateTag: "" } },
   document: { getElementById() { return element; }, body: { classList: { add() {}, remove() {} } } },
   URL,
   setTimeout() {},
@@ -115,6 +128,8 @@ try {
     }
   }
   if (appCode.includes("id:'cascadeMax'")) failures.push("Cascade Max-Flow remains rankable without a manufacturer-confirmed upper capacity");
+  if (appCode.includes("productImageUsageEnabled")) failures.push("Product photos still use a global enable switch instead of per-product eligibility");
+  if (!appCode.includes("approvedProductPhotos[p.id]")) failures.push("Product photo eligibility is not checked per product");
 } catch (error) {
   failures.push(`Quiz validation error: ${error.message}`);
 }

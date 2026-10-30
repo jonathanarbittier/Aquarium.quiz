@@ -27,12 +27,8 @@ Supporting-page source content lives in `scripts/generate-pages.mjs`. Update it,
 
 ## Affiliate configuration
 
-Affiliate tracking is disabled in `assets/config.js`. Do not enable it until the owner supplies an approved Amazon Associate ID. When enabled with a valid tag, the result page adds the tag to Amazon searches and displays the configured Associate disclosure.
+Affiliate tracking is disabled in `assets/config.js`. Do not enable it until an approved Amazon Associate ID is configured. When enabled with a valid tag, the result page adds the tag to Amazon searches and displays the configured Associate disclosure.
 
 ## Product image status
 
-Product-photo provenance is undocumented, so `productImageUsageEnabled` is false and the interface uses generic filter-format illustrations. See `IMAGE-PROVENANCE.md` before enabling local product photos.
-
-## Owner details
-
-The public owner identity and contact channel have not been supplied. See `OWNER-DETAILS-NEEDED.md` for the information still required.
+Product photographs are controlled by the per-product `approvedProductPhotos` registry in `assets/app.js`. Only add an entry after the exact model, source, and display permission are documented in `IMAGE-PROVENANCE.md`. Models without an approved entry use neutral filter-format illustrations.

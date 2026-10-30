@@ -1,6 +1,5 @@
-/* Affiliate tracking is intentionally inactive until the owner supplies a valid Amazon Associate ID. */
+/* Affiliate tracking is intentionally inactive until valid Amazon Associates credentials are configured. */
 window.TANKPICKS_CONFIG = Object.freeze({
   affiliateLinksEnabled: false,
-  amazonAssociateTag: "",
-  productImageUsageEnabled: false
+  amazonAssociateTag: ""
 });
