@@ -25,6 +25,8 @@ img { max-width: 100%; }
 .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
 .narrow { max-width: 760px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; transform: translateY(-150%); background: #fff; color: var(--ink); padding: 10px 14px; border-radius: 3px; font-weight: 750; }
+.skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 3px solid #ffd166; outline-offset: 3px; }
 
 .header { position: absolute; z-index: 5; top: 0; left: 50%; transform: translateX(-50%); height: 78px; display: flex; align-items: center; justify-content: center; text-align: center; }

@@ -305,13 +305,13 @@ function head({ title, description, path, type = "article" }) {
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${site}/assets/reef-hero-2172.webp" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/styles.css?v=a81aa02" />
   <title>${title}</title>
 </head>`;
 }
 
 function header() {
-  return `<header class="content-header"><div class="wrap header-inner"><a class="wordmark" href="/" aria-label="TankPicks home">TANKPICKS</a><nav aria-label="Primary"><a href="/">Filter finder</a><a href="/guides/">Guides</a></nav></div></header>`;
+  return `<a class="skip-link" href="#main-content">Skip to main content</a><header class="content-header"><div class="wrap header-inner"><a class="wordmark" href="/" aria-label="TankPicks home">TANKPICKS</a><nav aria-label="Primary"><a href="/">Filter finder</a><a href="/guides/">Guides</a></nav></div></header>`;
 }
 
 function sourceList(items) {
