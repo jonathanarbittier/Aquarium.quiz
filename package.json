@@ -1,0 +1,8 @@
+{
+  "name": "tankpicks",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-pages.mjs",
+    "validate": "node scripts/validate-site.mjs"
+  }
+}
