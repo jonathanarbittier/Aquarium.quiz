@@ -1,7 +1,8 @@
 import { mkdir, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 
-const root = new URL("../", import.meta.url).pathname;
+const projectRoot = new URL("../", import.meta.url).pathname;
+const root = resolve(projectRoot, process.argv[2] || ".");
 const site = "https://tankpicks.com";
 const updated = "October 29, 2026";
 

@@ -2,7 +2,8 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import vm from "node:vm";
 
-const root = resolve(new URL("../", import.meta.url).pathname);
+const projectRoot = resolve(new URL("../", import.meta.url).pathname);
+const root = resolve(projectRoot, process.argv[2] || ".");
 const failures = [];
 const htmlFiles = [];
 
