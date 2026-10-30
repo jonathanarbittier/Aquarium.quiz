@@ -282,7 +282,7 @@ const guides = [
 ];
 
 function footer() {
-  return `<footer class="site-footer"><div class="wrap footer-inner"><p>TankPicks compares published specifications. It does not claim hands-on testing.</p><nav aria-label="Footer"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/methodology/">Methodology</a><a href="/privacy/">Privacy</a></nav></div></footer>`;
+  return `<footer class="site-footer"><div class="wrap footer-inner"><p>TankPicks compares published specifications. It does not claim hands-on testing.</p><nav aria-label="Footer"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/methodology/">Methodology</a><a href="/photo-credits/">Photo credits</a><a href="/privacy/">Privacy</a></nav></div></footer>`;
 }
 
 function head({ title, description, path, type = "article" }) {
@@ -305,7 +305,7 @@ function head({ title, description, path, type = "article" }) {
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${site}/assets/reef-hero-2172.webp" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/assets/styles.css?v=20261030" />
+  <link rel="stylesheet" href="/assets/styles.css?v=20261030-photo1" />
   <title>${title}</title>
 </head>`;
 }
@@ -333,10 +333,13 @@ const methodology = `<!doctype html><html lang="en">${head({ title: "Recommendat
 
 const privacy = `<!doctype html><html lang="en">${head({ title: "Privacy Policy | TankPicks", description: "Read how the current TankPicks static website handles data, external links, hosting requests, and future affiliate configuration.", path: "/privacy/" })}<body class="content-page">${header()}<main class="content-main" id="main-content"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Privacy</li></ol></nav><article class="article"><p class="section-label">Privacy</p><h1>Privacy policy</h1><p class="lede">The current TankPicks site is a static website. It has no account system, contact form, advertising scripts, analytics code, or affiliate tracking enabled in this repository.</p><p class="updated">Effective ${updated}</p><h2>Quiz answers</h2><p>Quiz answers are processed in your browser to display filter matches. The site does not send those answers to a TankPicks database, and it does not store them in cookies or browser storage.</p><h2>Hosting data</h2><p>The site is hosted on Vercel. Like other web hosts, Vercel may process request information needed to deliver and secure the site, such as IP address, requested URL, user agent, timestamps, and diagnostic logs. TankPicks does not control Vercel’s independent retention and security practices.</p><h2>External links</h2><p>Manufacturer and retailer links take you to third-party websites. Those sites may collect data under their own privacy policies. Amazon search links are currently untagged. If affiliate tracking is activated later, this policy and the on-page disclosure should be updated before deployment.</p><h2>Cookies and local storage</h2><p>The current TankPicks code does not set cookies and does not use local storage. Third-party sites reached through external links may do so after you leave TankPicks.</p><h2>Personal information</h2><p>TankPicks does not provide accounts or a form for submitting personal information. Do not send sensitive information through external retailer or manufacturer links unless you have reviewed that site’s privacy practices.</p><h2>Changes</h2><p>This page should be reviewed whenever analytics, forms, advertising, affiliate tags, accounts, or other data-processing features are added. The effective date will be updated when the policy changes.</p></article></div></main>${footer()}</body></html>`;
 
+const photoCredits = `<!doctype html><html lang="en">${head({ title: "Photo Credits | TankPicks", description: "Sources, licenses, attribution, and modification details for product photographs displayed by TankPicks.", path: "/photo-credits/" })}<body class="content-page">${header()}<main class="content-main" id="main-content"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Photo credits</li></ol></nav><article class="article"><p class="section-label">Image licensing</p><h1>Photo credits</h1><p class="lede">TankPicks displays a product photograph only when the exact model and a commercial-reuse basis have been verified.</p><h2>Fluval FX6</h2><p><strong>Photographer / rights holder:</strong> Fish Tank Society</p><p><strong>Source:</strong> <a class="text-link" href="https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg" target="_blank" rel="noopener noreferrer">Fluval FX6 Canister Filter on Wikimedia Commons</a></p><p><strong>License:</strong> <a class="text-link" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International</a></p><p><strong>Modifications:</strong> Converted from the source JPEG to WebP for faster delivery. The 1024 × 768 composition was retained without cropping or content changes.</p><p>This adapted image is shared under the same CC BY-SA 4.0 license.</p><h2>Other result images</h2><p>Models without a cleared exact-model photograph use TankPicks’ neutral filter-format illustrations. Manufacturer and retailer images are not copied merely because they are publicly viewable.</p></article></div></main>${footer()}</body></html>`;
+
 const outputs = new Map([
   ["guides/index.html", guidesIndex],
   ["about/index.html", about],
   ["methodology/index.html", methodology],
+  ["photo-credits/index.html", photoCredits],
   ["privacy/index.html", privacy],
   ...guides.map(guide => [`guides/${guide.slug}/index.html`, guidePage(guide)])
 ]);
@@ -347,7 +350,7 @@ for (const [relative, html] of outputs) {
   await writeFile(target, `${html}\n`);
 }
 
-const publicPaths = ["/", "/guides/", ...guides.map(guide => `/guides/${guide.slug}/`), "/about/", "/methodology/", "/privacy/"];
+const publicPaths = ["/", "/guides/", ...guides.map(guide => `/guides/${guide.slug}/`), "/about/", "/methodology/", "/photo-credits/", "/privacy/"];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${publicPaths.map(path => `  <url><loc>${site}${path}</loc></url>`).join("\n")}\n</urlset>\n`;
 await writeFile(join(root, "sitemap.xml"), sitemap);
 

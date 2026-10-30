@@ -1,6 +1,6 @@
 import { cp, mkdir, rm } from "node:fs/promises";
 import { execFile } from "node:child_process";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { promisify } from "node:util";
 
 const run = promisify(execFile);
@@ -19,7 +19,8 @@ const assetFiles = [
   "reef-hero-1280.avif",
   "reef-hero-1280.webp",
   "reef-hero-2172.avif",
-  "reef-hero-2172.webp"
+  "reef-hero-2172.webp",
+  "product-photos/fluval-fx6.webp"
 ];
 
 await rm(outputRoot, { recursive: true, force: true });
@@ -30,7 +31,9 @@ for (const file of rootFiles) {
 }
 
 for (const file of assetFiles) {
-  await cp(join(projectRoot, "assets", file), join(outputRoot, "assets", file));
+  const target = join(outputRoot, "assets", file);
+  await mkdir(dirname(target), { recursive: true });
+  await cp(join(projectRoot, "assets", file), target);
 }
 
 const { stdout, stderr } = await run(process.execPath, [join(projectRoot, "scripts/generate-pages.mjs"), "dist"], {

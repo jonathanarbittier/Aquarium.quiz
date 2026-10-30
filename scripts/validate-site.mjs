@@ -101,6 +101,7 @@ if (!robots.includes("Sitemap: https://tankpicks.com/sitemap.xml")) failures.pus
 
 const appCode = readFileSync(join(root, "assets/app.js"), "utf8");
 if (existsSync(join(root, "assets/products"))) failures.push("Uncleared product photographs were copied into the deployable build");
+if (!existsSync(join(root, "assets/product-photos/fluval-fx6.webp"))) failures.push("Approved Fluval FX6 photograph is missing from the deployable build");
 const element = { addEventListener() {}, classList: { add() {}, remove() {}, toggle() {} }, dataset: {}, scrollIntoView() {}, focus() {}, setAttribute() {} };
 const context = {
   window: { TANKPICKS_CONFIG: { affiliateLinksEnabled: false, amazonAssociateTag: "" } },
@@ -130,6 +131,8 @@ try {
   if (appCode.includes("id:'cascadeMax'")) failures.push("Cascade Max-Flow remains rankable without a manufacturer-confirmed upper capacity");
   if (appCode.includes("productImageUsageEnabled")) failures.push("Product photos still use a global enable switch instead of per-product eligibility");
   if (!appCode.includes("approvedProductPhotos[p.id]")) failures.push("Product photo eligibility is not checked per product");
+  if (!appCode.includes("product-photos/fluval-fx6.webp")) failures.push("Approved Fluval FX6 photograph is not registered per product");
+  if (!appCode.includes("CC BY-SA 4.0")) failures.push("Fluval FX6 photo attribution is missing from result rendering");
 } catch (error) {
   failures.push(`Quiz validation error: ${error.message}`);
 }
